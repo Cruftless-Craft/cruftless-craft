@@ -1,0 +1,2 @@
+/sw.js # use the name of your service worker js file here
+   Cache-Control: no-cache

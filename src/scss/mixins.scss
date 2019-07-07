@@ -1,0 +1,169 @@
+@mixin clearfix {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        display: table;
+        content: '';
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin screenreader {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@mixin heading-line-base {
+    height: 5px;
+    width: $space * 1.25;
+    top: 0.35em; // Visual realign
+    position: absolute;
+    background-color: currentColor;
+}
+
+// Strip out units
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+// ==========================================================================
+// Maps
+// ==========================================================================
+
+// Get a map item from an object that is a few levels deep
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// Reverse a map
+@function map-reverse($map) {
+    $result: null;
+
+    @if type-of($map) == 'map' {
+        $keys: map-keys($map);
+        $map-reversed: ();
+
+        @for $i from length($keys) through 1 {
+            $map-reversed: map-merge(
+                $map-reversed,
+                (
+                    nth($keys, $i): map-get($map, nth($keys, $i))
+                )
+            );
+        }
+
+        @if type-of($map-reversed) == 'map' {
+            $result: $map-reversed;
+        } @else {
+            @warn 'There was an error reversing the order of "#{$map}"';
+        }
+    } @else {
+        @warn '"#{$map}" is not a valid map';
+    }
+
+    @return $result;
+}
+
+// ==========================================================================
+// Responsive helpers
+// ==========================================================================
+
+// This Responsive Typography is to show the simplier syntax
+// https://codepen.io/jnowland/pen/GWgbMP
+
+// Built of the back of the authors of:
+// http://www.sassmeister.com/gist/7f22e44ace49b5124eec
+// https://codepen.io/stowball/pen/JWoWWz?editors=0100
+
+// Usage example
+// @include responsive-resize(font-size, $l-tiny, $l-huge, $font-size-min, $heading-large);
+
+// Base Responsive resize function that the type one uses
+@mixin responsive-resize(
+    $properties,
+    $min-vw,
+    $max-vw,
+    $min-value,
+    $max-value
+) {
+    @each $property in $properties {
+        #{$property}: $min-value;
+    }
+
+    @media (min-width: $min-vw) and (max-width: $max-vw) {
+        @each $property in $properties {
+            #{$property}: calc(
+                #{$min-value} +
+                    #{strip-unit($max-value - $min-value)} *
+                    (100vw - #{$min-vw}) /
+                    #{strip-unit($max-vw - $min-vw)}
+            );
+        }
+    }
+
+    @media (min-width: $max-vw) {
+        @each $property in $properties {
+            #{$property}: $max-value;
+        }
+    }
+}
+
+// Stretch to fill available space
+@mixin fluid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+// Stretch to cover entire screen
+@mixin fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+// Reset to default button styles
+@mixin button-reset {
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+@mixin icon-base {
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+// States
+
+@mixin no-js {
+    html.no-js & {
+        @content;
+    }
+}

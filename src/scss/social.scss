@@ -1,0 +1,32 @@
+.social-links.social-links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    > div + div {
+        margin-top: 0;
+        margin-left: $space/7;
+    }
+}
+
+.social-icon {
+    cursor: pointer;
+    background-color: $primary;
+    display: block;
+
+    &:hover,
+    &:focus {
+        rect {
+            fill: $black;
+        }
+    }
+
+    rect {
+        fill: $primary;
+    }
+
+    path {
+        fill: $white;
+        transform-origin: 50%;
+    }
+}

@@ -1,0 +1,23 @@
+// Basic
+$white: #fff;
+$black: #333;
+$grey: #aaa;
+$grey-dark: #666;
+$primary: #dd3e28;
+$primary-highlight: #ffff99;
+$primary-highlighter: lighten(#ffff99, 5%);
+
+// Text
+$text: #333;
+$text-link: #1c7489;
+$text-link-hover: darken(#1c7489, 10%);
+
+// Misc
+$tap: transparent;
+$canvas: $primary;
+
+// Selections
+$selection-light: $white;
+$selection-light-bg: $primary;
+$selection-dark: $white;
+$selection-dark-bg: $black;

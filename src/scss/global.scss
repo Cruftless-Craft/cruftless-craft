@@ -1,0 +1,79 @@
+html {
+    overflow-y: scroll;
+    min-height: 100%;
+    color: $text;
+    background-color: $canvas;
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+    font-feature-settings: 'kern', 'liga', 'pnum';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: $tap;
+    @include type-base;
+    -ms-overflow-style: -ms-autohiding-scrollbar; // https://css-tricks.com/snippets/css/hide-scrollbar-in-edge-ie-1011/
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: $white;
+    margin: 0;
+}
+
+::selection {
+    text-shadow: none;
+    color: $selection-dark;
+    background-color: $selection-dark-bg;
+}
+
+sup {
+    font-size: 60%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0 0 $space/2;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+picture {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul,
+ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a,
+button {
+    outline: 0;
+}

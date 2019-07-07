@@ -1,0 +1,209 @@
+// Codeblocks
+
+// All types
+code[class*='language-'],
+pre[class*='language-'] {
+    font-family: 'Fira Code', Consolas, Menlo, Monaco, 'Andale Mono WT',
+        'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter',
+        'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
+        'Nimbus Mono L', 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    direction: ltr;
+    text-align: left;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+    hyphens: none;
+}
+
+pre[class*='language-'] {
+    position: relative;
+    &:before {
+        color: #fff;
+        background-color: $primary;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: $space/1.5;
+        padding: 0.075em 0.5em 0.05em 0.5em;
+        font-size: 60%;
+        font-weight: bold;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+    }
+}
+
+pre[class='language-twig']:before,
+pre[class='language-html']:before {
+    content: 'TWIG';
+}
+
+pre[class='language-bash']:before {
+    content: 'Bash';
+}
+
+pre[class='language-js']:before {
+    content: 'Javascript';
+}
+
+pre[class='language-php']:before {
+    content: 'PHP';
+}
+
+// Blocks
+pre[class*='language-'] {
+    margin: 2.25em 0 2em 0;
+    overflow: auto;
+    background-color: #2a2a2a;
+    color: #fff;
+    line-height: 1.475;
+    white-space: pre;
+    border-radius: 1px;
+    padding: $space/1.25 $space/1.5 $space/1.75 $space/1.5;
+
+    @media screen and (min-width: $large) {
+        padding: $space/1 $space * 1 $space/1.25 $space * 1;
+    }
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 7px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $grey-dark;
+    }
+}
+
+// Inlines
+code[class*='language-text'] {
+    color: $black;
+    background-color: lighten($grey-dark, 54%);
+}
+
+:not(pre) > code[class*='language-'] {
+    padding: 0.15em 0.4em;
+    border-radius: 0.15em;
+}
+
+// Code blocks
+pre[class*='language-'] {
+    overflow: auto;
+
+    @media screen and (min-width: $medium) {
+        margin-left: -$space/1.5;
+        margin-right: -$space/1.5;
+    }
+
+    @media screen and (min-width: $large) {
+        margin-left: -4rem;
+        margin-right: -4rem;
+    }
+}
+
+.token.comment,
+.token.blockquote,
+.token.shebang.important,
+.token.shebang {
+    color: #a7a28c;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.tag,
+.token.deleted,
+.token.selector,
+.token.prolog,
+.token.title .token.punctuation {
+    color: #f92672;
+}
+
+.token.property,
+.token.entity,
+.token.atrule,
+.token.command,
+.token.code {
+    color: #66d9ef;
+}
+
+.token.regex,
+.token.atrule .token.property {
+    color: #fd971f;
+}
+
+.token.pseudo-element,
+.token.id,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.function,
+.token.namespace,
+.token.inserted,
+.token.symbol,
+.token.url-reference .token.variable,
+.token.attr-name {
+    color: #a6e22e;
+}
+
+.token.string,
+.token.url,
+.token.list,
+.token.cdata,
+.token.attr-value,
+.token.attr-value a.token.url-link {
+    color: #e6db74;
+}
+
+.token.constant,
+.token.hexcode,
+.token.builtin,
+.token.number,
+.token.boolean {
+    color: #ae81ff;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+    color: #f8f8f2;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+    color: #f92672;
+}
+
+code,
+pre {
+    a.vglnk {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: inherit;
+        }
+    }
+}
+
+/* Bash */
+.language-bash .token.function {
+    color: #f92672;
+}

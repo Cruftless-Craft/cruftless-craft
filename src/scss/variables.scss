@@ -1,0 +1,37 @@
+// Typography
+$base-font-family: 'Circular', Arial, sans-serif;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Animations
+$base-duration: 0.5s;
+$base-easing: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+// Sizes
+$base: 0px;
+$small: 480px;
+$nexus: 600px;
+$medium: 768px;
+$ipad: 1024px;
+$large: 1280px;
+$xlarge: 1440px;
+$huge: 1681px;
+$max: 1800px;
+
+// Define breakpoints for include media
+$breakpoints: (
+    base: $base,
+    small: $small,
+    nexus: $nexus,
+    medium: $medium,
+    ipad: $ipad,
+    large: $large,
+    xlarge: $xlarge,
+    huge: $huge,
+    max: $max
+);
+
+// Padding & Misc
+$space: 2rem;
