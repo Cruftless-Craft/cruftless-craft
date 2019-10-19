@@ -1,6 +1,6 @@
-const config = require('./data/SiteConfig');
+const config = require('./data/SiteConfig')
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
 
 module.exports = {
     pathPrefix: config.pathPrefix,
@@ -15,20 +15,20 @@ module.exports = {
             description: config.siteDescription,
             image_url: `${config.siteUrl + pathPrefix}/logos/logo-512.png`,
             author: config.userName,
-            copyright: config.copyright
-        }
+            copyright: config.copyright,
+        },
     },
     plugins: [
         {
-            resolve: 'gatsby-plugin-feed'
+            resolve: 'gatsby-plugin-feed',
         },
         'gatsby-plugin-react-helmet',
         {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'posts',
-                path: `${__dirname}${config.blogPostDir}`
-            }
+                path: `${__dirname}${config.blogPostDir}`,
+            },
         },
         {
             resolve: 'gatsby-transformer-remark', // Markdown
@@ -37,35 +37,35 @@ module.exports = {
                     {
                         resolve: 'gatsby-remark-images',
                         options: {
-                            maxWidth: 690
-                        }
+                            maxWidth: 690,
+                        },
                     },
                     {
-                        resolve: 'gatsby-remark-responsive-iframe'
+                        resolve: 'gatsby-remark-responsive-iframe',
                     },
                     {
                         resolve: 'gatsby-remark-external-links',
                         options: {
-                            target: '_blank'
-                        }
+                            target: '_blank',
+                        },
                     },
                     'gatsby-remark-smartypants',
                     'gatsby-remark-copy-linked-files',
                     'gatsby-remark-autolink-headers',
-                    'gatsby-remark-prismjs' // keep this under autolink headers https://github.com/gatsbyjs/gatsby/issues/5764
-                ]
-            }
+                    'gatsby-remark-prismjs', // keep this under autolink headers https://github.com/gatsbyjs/gatsby/issues/5764
+                ],
+            },
         },
         {
             resolve: 'gatsby-plugin-google-analytics',
             options: {
-                trackingId: config.googleAnalyticsID
-            }
+                trackingId: config.googleAnalyticsID,
+            },
         },
         'gatsby-plugin-sass',
         'gatsby-plugin-sharp', // image manipulation
         'gatsby-plugin-sitemap',
         'gatsby-plugin-offline',
-        'gatsby-plugin-remove-trailing-slashes'
-    ]
-};
+        'gatsby-plugin-remove-trailing-slashes',
+    ],
+}

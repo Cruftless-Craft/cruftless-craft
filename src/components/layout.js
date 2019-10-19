@@ -1,6 +1,6 @@
-import React from 'react';
-import '../scss/index.scss';
+import React from 'react'
+import '../scss/index.scss'
 
-export default ({ children, className, pathname }) => (
+export default ({ children, className }) => (
     <div className={className}>{children}</div>
-);
+)
