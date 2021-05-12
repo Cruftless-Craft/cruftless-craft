@@ -132,10 +132,6 @@
         margin-top: $space * 2;
     }
 
-    &__comments {
-        margin-top: $space * 2;
-    }
-
     &__finish {
         @include type-intro;
         margin-top: $space * 1.5;
@@ -223,8 +219,8 @@
     &__image {
         border-radius: 50%;
         overflow: hidden;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     &__text {

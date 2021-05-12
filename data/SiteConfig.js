@@ -12,7 +12,6 @@ module.exports = {
     siteRss: '/rss.xml', // Path to the RSS file.
     siteFBAppID: '2121846111223642', // FB Application ID for using app insights.
     googleAnalyticsID: 'UA-122816071-1', // GA tracking ID.
-    disqusShortname: 'cruftless-craft', // Disqus shortname.
     postDefaultCategoryID: 'Tech', // Default category for posts.
     userName: 'Ben', // Username to display in the author segment.
     userTwitter: 'cruftless', // For social metadata.

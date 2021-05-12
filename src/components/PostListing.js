@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import TimeAgo from 'react-timeago'
 
 export default ({ posts, isHighlighted }) => (
     <ul
@@ -20,11 +19,6 @@ export default ({ posts, isHighlighted }) => (
                         <Link to={slug} className="postlist__link">
                             <div className="postlist__text">
                                 <div className="postlist__title">{title}</div>
-                                <div className="postlist__date">
-                                    <TimeAgo
-                                        date={new Date(date).toISOString()}
-                                    />
-                                </div>
                             </div>
                         </Link>
                     </div>

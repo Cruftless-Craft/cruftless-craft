@@ -1,11 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import TimeAgo from 'react-timeago'
 
 // Components
 import SocialLinks from '../components/SocialLinks'
 import SEO from '../components/SEO'
-import Disqus from '../components/Disqus'
 import Layout from '../components/layout'
 import PostListing from '../components/PostListing'
 
@@ -26,10 +24,6 @@ export default ({
     },
 }) => {
     const postNode = post
-    const posted = new Date(date)
-    const postedIso = posted.toISOString()
-    const updatedAt = updated && new Date(updated)
-    const updatedIso = updatedAt && updatedAt.toISOString()
     const posts = edges
     return (
         <Layout className="post" pathname={pathname}>
@@ -102,14 +96,6 @@ export default ({
                                 <a href="https://benrogerson.com.au">
                                     {author}
                                 </a>
-                                <div>
-                                    published <TimeAgo date={postedIso} />
-                                </div>
-                                {updated && (
-                                    <div>
-                                        updated <TimeAgo date={updatedIso} />
-                                    </div>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -120,10 +106,6 @@ export default ({
 
                     <div className="post__finish" aria-hidden="true">
                         <SocialLinks postPath={slug} postNode={postNode} />
-                    </div>
-
-                    <div className="post__comments">
-                        <Disqus postNode={postNode} />
                     </div>
                 </div>
 
