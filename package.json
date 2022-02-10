@@ -29,7 +29,7 @@
         "gatsby-transformer-remark": "2.6.30",
         "lodash": "^4.17.15",
         "lodash-webpack-plugin": "^0.11.5",
-        "node-sass": "^4.12.0",
+        "node-sass": "^7.0.0",
         "prismjs": "^1.17.1",
         "react": "^16.10.2",
         "react-disqus-comments": "^1.4.0",
